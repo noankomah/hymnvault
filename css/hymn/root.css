@@ -1,0 +1,59 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Layout heights ── */
+  --bar-height:        3.5rem;   /* 56px  — language bar */
+  --genre-bar-height:  3rem;     /* 48px  — genre sub-bar */
+
+  /* ── Panel widths ── */
+  --menu-width: clamp(200px, 22vw, 280px);
+
+  /* ── Content ── */
+  --content-max: 680px;          /* readable content cap */
+
+  /* ── Touch targets ── */
+  --touch-target: 2.75rem;       /* 44px minimum */
+
+  /* ── Palette — Ghana-inspired ── */
+  --clr-bar-bg:       #0f2318;
+  --clr-bar-border:   #1e3d28;
+  --clr-gold:         #e8a020;
+  --clr-gold-light:   #f5c354;
+  --clr-gold-dim:     rgba(232, 160, 32, 0.12);
+  --clr-active-text:  #0f2318;
+  --clr-text-muted:   rgba(255, 255, 255, 0.55);
+  --clr-text-light:   rgba(255, 255, 255, 0.90);
+
+  --clr-input-border: rgba(255, 255, 255, 0.14);
+  --clr-input-focus:  rgba(232, 160, 32, 0.50);
+
+  /* ── Typography ── */
+  --font-ui: 'Trebuchet MS', 'Segoe UI', sans-serif;
+
+  /* ── Radius ── */
+  --r-pill: 100px;
+  --r-btn:  0.5rem;
+}
+
+/* Mobile overrides for root variables */
+@media (max-width: 600px) {
+  :root {
+    --bar-height:   3rem;              /* 48px */
+    --menu-width:   min(85vw, 300px);
+  }
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 1rem;        /* 16px — never fight the browser default */
+  min-height: 100dvh;
+  background: #f7f1df;
+}
+
+.hidden {
+  display: none !important;
+}

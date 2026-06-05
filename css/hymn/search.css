@@ -1,0 +1,192 @@
+/* ── SEARCH BOX ─────────────────────────────────────────── */
+/*
+  Visually one field, internally two inputs + a static colon.
+  [ E ] [ : ] [ search hymns_________ ] [✕]
+*/
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 2.1rem;
+  border: 1.5px solid rgba(232, 160, 32, 0.40);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;                 /* keeps inner inputs inside the pill */
+  transition: border-color 0.2s, box-shadow 0.2s, width 0.35s ease;
+  width: 10rem;
+}
+
+.search-box:focus-within {
+  border-color: rgba(232, 160, 32, 0.75);
+  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.20);
+  width: clamp(11rem, 20vw, 18rem);
+}
+
+/* ── Prefix input (E / T / D / Ew …) ── */
+#searchPrefix {
+  width: 1.6rem;
+  height: 100%;
+  padding: 0 0 0 0.6rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--clr-gold);
+  text-transform: uppercase;
+  caret-color: var(--clr-gold);
+  cursor: text;
+}
+
+/* invalid prefix — briefly flash red */
+#searchPrefix.prefix-invalid {
+  color: #c1272d;
+  animation: prefixShake 0.3s ease;
+}
+
+@keyframes prefixShake {
+  0%, 100% { transform: translateX(0); }
+  30%       { transform: translateX(-3px); }
+  70%       { transform: translateX(3px); }
+}
+
+/* ── Static colon separator ── */
+.search-colon {
+  flex: 0 0 auto;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.35);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  padding: 0 0.1rem;
+}
+
+/* ── Main query input ── */
+#searchQuery {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 2rem 0 0.3rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  color: black;
+}
+
+#searchQuery::placeholder {
+  color: rgba(0, 0, 0, 0.40);
+  font-size: 0.875rem;
+}
+
+/* ── Clear button ── */
+#closeSearch {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.10);
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+#closeSearch:hover {
+  background: rgba(193, 39, 45, 0.45);
+  color: white;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+#closeSearch.hidden {
+  display: none;
+}
+
+
+/* ── SEARCH RESULTS ─────────────────────────────────────── */
+
+/* Results list reuses .hymn-list — only overrides needed */
+.search-results {
+  padding-top: 0.5rem;
+}
+
+/* Section divider between titles and lyrics results */
+.search-section-label {
+  list-style: none;
+  padding: 0.6rem 1rem 0.3rem;
+  font-size: 0.6875rem;      /* 11px label */
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  border-top: 1px solid rgba(232, 160, 32, 0.20);
+  margin-top: 0.5rem;
+}
+
+/* Hymn items that carry a lyrics snippet */
+.hymn-item--has-snippet {
+  align-items: flex-start;   /* top-align when snippet wraps */
+}
+
+.hymn-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* The lyric snippet line */
+.hymn-snippet {
+  font-size: 0.8125rem;      /* 13px — clearly smaller than title */
+  color: rgba(26, 46, 26, 0.60);
+  font-style: italic;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .search-box {
+    width: 5.5rem;
+  }
+
+  .search-box:focus-within {
+    width: clamp(7rem, 44vw, 13rem);
+  }
+
+  #searchPrefix {
+    font-size: 0.875rem;
+    width: 1.4rem;
+    padding-left: 0.5rem;
+  }
+
+  #searchQuery {
+    font-size: 0.875rem;
+  }
+
+  .search-colon {
+    font-size: 0.875rem;
+  }
+
+  /* on small screens, let the snippet wrap */
+  .hymn-snippet {
+    white-space: normal;
+    font-size: 0.75rem;
+  }
+}

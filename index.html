@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!--the name on the web bar-->
+        <title>COC Hymns</title>
+        <meta charset="UTF-8">
+        <!--all the design here-->
+        <link rel="stylesheet" href="css/hymn/languageBar.css">
+        <link rel="stylesheet" href="css/hymn/root.css">
+        <link rel="stylesheet" href="css/hymn/menus.css">
+        <link rel="stylesheet" href="css/hymn/main.css">
+        <link rel="stylesheet" href="css/hymn/instruction.css">
+        <link rel="stylesheet" href="css/hymn/lyrics.css">
+        <link rel="stylesheet" href="css/hymn/search.css">
+        <link rel="stylesheet" href="css/hymn/darkmode.css">
+        <link rel="stylesheet" href="css/hymn/user_features.css">
+        <link rel="stylesheet" href="css/hymn/lyrics_nav.css">
+        <link rel="stylesheet" href="css/hymn/sort.css">
+        
+        
+
+
+    </head>
+    <body>
+        <main>
+        </main>
+
+        <div id="instructionOverlay" class="instruction-overlay popup-overlay">
+            <div class="instr-deco">
+                <span></span><span></span><span></span>
+            </div>
+            <div id="instructionPanel" class="instruction-panel popup-panel">
+                <div class="instr-left">
+                <h2 id="instructionText">Select a language to begin</h2>
+                <p>tap any language above</p>
+                </div>
+
+                <!-- mini mockup demo -->
+                <div class="mini-mockup">
+                    <div class="mini-overlay" id="miniOverlay">
+                    <div class="mini-dot-row"><span></span><span></span><span></span></div>
+                    <div class="mini-overlay-text">Select a language<br>to begin</div>
+                </div>
+                <div class="mini-bar">
+                    <span class="mini-pill" id="mp-eng">English</span>
+                    <span class="mini-pill" id="mp-twi">Twi</span>
+                    <span class="mini-pill" id="mp-dan">Dangme</span>
+                    <div style="flex:1"></div>
+                    <span style="font-size:7px;color:#999;">🔎</span>
+                </div>
+                <div class="mini-genre-bar" id="miniGenreBar">
+                    <span class="mini-gpill active" id="mgp1">SS</span>
+                    <span class="mini-gpill" id="mgp2">SOC</span>
+                    <span class="mini-gpill" id="mgp3">Methodist</span>
+                </div>
+                <div class="mini-body" id="miniHymnBody"></div>
+                <div class="mini-cursor" id="miniCursor"></div>
+            </div>
+        </div>
+            </div>
+
+        <div id = 'langBar' class="language-bar">
+            <button id = 'menuBtn' data-popup="menuPanel">߹</button>
+            
+            <div id = "middle" class="middle"></div>
+
+            <div class="last">
+                <div class="search-box" id="searchBox">
+                    <input type="text" id="searchPrefix" value="E" maxlength="2" 
+                        autocomplete="off" spellcheck="false" aria-label="Language prefix">
+                    <span class="search-colon">:</span>
+                    <input type="text" id="searchQuery" placeholder="search hymns" 
+                        autocomplete="off" spellcheck="false" aria-label="Search">
+                    <button id="closeSearch" class="hidden" aria-label="Clear search">✕</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sort-button">
+            <div id="sortPopup" class="sort-popup hidden">
+                <button id="sortAlpha">Alphabetical</button>
+                <button id="sortNumber">By Number</button>
+            </div>
+            <button id="sortBtn">⇅<br>Sort</button>
+        </div>
+        
+
+        <div id="langOverlay" class="lang-overlay popup-overlay hidden"></div>
+        <div id="langPanel"   class="lang-panel  popup-panel hidden">
+            <h2 id="langPanelTitle"></h2>
+            <div id="genreList"></div>
+        </div>
+
+        <div id="menuOverlay" class="menu-overlay popup-overlay hidden"></div>
+        <div id="menuPanel"   class="menu-panel   popup-panel hidden">
+            <h1>YOUR DAILY HYMN</h1>
+            <ul>
+            
+             
+             <li data-action="favourites">♥<span>My Favourites</span></li>
+             <li data-action="singlist">♪<span>Singlist</span></li>
+             <li data-action="recently-viewed">🕐<span>Recently Viewed</span></li>
+             <li>⛶<span>Presentation Mode</span></li>
+             <li>🌗<span>Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="darkToggle">
+                    <span class="slider"></span>
+                </label>
+            </ul>
+        </div>
+
+        <div id="searchOverlay" class="search-overlay hidden"></div>
+  
+        <script src="js/hymn/instruction.js"></script>
+        <script src="js/hymn/allpops.js"></script>
+        <script src="js/hymn/genre.js"></script>
+        <script src="js/hymn/lyrics_nav.js"></script>  <!-- before lyrics.js -->
+        <script src="js/hymn/lyrics.js"></script>        
+        <script src="js/hymn/user_features.js"></script>    
+        <script src="js/hymn/static.js"></script>    
+        <script src="js/hymn/search.js"></script>
+        <script src="js/hymn/darkmode.js"></script>
+        <script src="js/hymn/sort.js"></script>
+
+    </body>
+        
+
+</html>

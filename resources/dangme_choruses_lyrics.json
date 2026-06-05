@@ -1,0 +1,54 @@
+{
+  "150": {
+    "dangme_title": "MAWU HI",
+    "english_title": "O sa yi jem'",
+    "verses": [],
+    "chorus": "",
+    "parts": {}
+  },
+  "259": {
+    "dangme_title": "MAWU NGƐ HE WAM'",
+    "english_title": "       (Nyame Wɔ Tumi",
+    "verses": [],
+    "chorus": "",
+    "parts": {
+      "treble": [
+        "Ye bua jɔ, ha nɛ ma nya waa",
+        "He wam', he wam', he wam'",
+        "Nyɔmtsɛ ji ye wesa he",
+        "He wam', he wam', he wam'",
+        "I kɛ sina ma ha Mawu oo",
+        "He wam', he wam', he wam',",
+        "Mawu ngɛ he wami oo."
+      ],
+      "Soprano": [
+        "E haa hiɔm' nɛɔ ngɛ e be nɔ",
+        "He wam', he wam', he wam'",
+        "E haa pu tsoɔ ngɛ e be nɔ,",
+        "He wam', he wam', he wam'",
+        "E haa nihi slɔɔtohi tsuo pɛ",
+        "He wam', he wam', he wam'",
+        "Tsaatsɛ Mawu ngɛ he wami oo",
+        "He wam', he wam', he wam'"
+      ],
+      "Tenor": [
+        "Jehanɛ ɔ yi jemi ngɛ lami mi ɔ",
+        "He wam', he wam', he wam'",
+        "Ma je ye Nyɔmtsɛ yi oo",
+        "He wam', he wam', he wam'",
+        "Lalɔ hu maa ma nɔ mi ke ɔ,",
+        "He wam', he wam', he wam'",
+        "Tsaatsɛ Mawu ngɛ he wami oo",
+        "He wam', he wam', he wam'"
+      ],
+      "Bass": [
+        "Niinɛ, E ngɛ he wam', E ngɛ he wam',",
+        "He wam', he wam', he wam'",
+        "E ngɛ suɔmi, he wam', he wam', he wam'",
+        "E ngɛ mɔbɔ nam', he wam', he wam', he wam'",
+        "Mawu ngɛ he wam', he wam', ngɛ he wam',",
+        "ngɛ he wam'."
+      ]
+    }
+  }
+}

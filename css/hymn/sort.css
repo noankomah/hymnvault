@@ -1,0 +1,101 @@
+/* ── SORT BUTTON ───────────────────────────── */
+
+.sort-button {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+}
+body.hymn-list-view .sort-button {
+  display: flex;
+}
+
+/* main floating button */
+#sortBtn {
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22d3ee, #14b8a6);
+  color: #082f2e;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.1;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  
+}
+
+#sortBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.30);
+}
+
+#sortBtn:active {
+  transform: scale(0.96);
+}
+
+/* popup */
+.sort-popup {
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+.sort-popup.hidden {
+  display: none;
+}
+
+.sort-popup button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sort-popup button:hover {
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+/* ── MOBILE ───────────────────────────────── */
+
+@media (max-width: 600px) {
+  .sort-button {
+    right: 12px;
+    bottom: 16px;
+  }
+
+  #sortBtn {
+    width: 54px;
+    height: 54px;
+    font-size: 11px;
+  }
+
+  .sort-popup {
+    bottom: 66px;
+    min-width: 135px;
+  }
+
+  .sort-popup button {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+}

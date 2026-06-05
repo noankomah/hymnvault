@@ -1,0 +1,172 @@
+/* ── LANG PANEL — genre sub-bar below the language bar ── */
+.lang-panel {
+  position: fixed;
+  top: var(--bar-height);
+  left: 0;
+  right: 0;
+  z-index: 899;
+  height: var(--genre-bar-height);
+
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 1rem;
+
+  background: white;
+  border-bottom: 1px solid rgba(232, 160, 32, 0.20);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* horizontal scroll if genres overflow — common on mobile */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lang-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.lang-panel.hidden {
+  display: none;
+}
+
+/* Language label e.g. "TWI" */
+#langPanelTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  flex: 0 0 auto;
+  margin-right: 0.25rem;
+}
+
+/* Genre button list */
+#genreList {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#genreList button {
+  flex: 0 0 auto;
+  height: 2rem;
+  padding: 0 1rem;
+
+  font-family: var(--font-ui);
+  font-size: 0.9rem;      /* 14.4px — minimum that feels comfortable */
+  font-weight: 600;
+  white-space: nowrap;
+  color: black;
+
+  background: transparent;
+  border: 1px solid rgba(232, 160, 32, 0.35);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#genreList button:hover {
+  background: var(--clr-gold-dim);
+  border-color: rgba(232, 160, 32, 0.50);
+}
+
+#genreList button.active {
+  background: var(--clr-gold);
+  color: var(--clr-active-text);
+  border-color: var(--clr-gold);
+  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.25);
+}
+
+
+/* ── MORE PANEL — language overflow from the bar ── */
+.more-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: var(--bar-height);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+
+  background: white;
+  border-bottom: 1px solid rgba(232, 160, 32, 0.25);
+
+  max-width: calc(100vw - var(--menu-width));
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.more-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.more-panel.hidden {
+  display: none;
+}
+
+.more-panel button {
+  flex: 0 0 auto;
+  height: 2.1rem;
+  padding: 0 1rem;
+
+  font-family: var(--font-ui);
+  font-size: 0.9rem;      /* 14.4px */
+  font-weight: 600;
+  white-space: nowrap;
+  color: black;
+
+  background: transparent;
+  border: 1px solid rgba(232, 79, 32, 0.35);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.12s;
+}
+
+.more-panel button:hover {
+  background: var(--clr-gold);
+  color: var(--clr-active-text);
+  border-color: var(--clr-gold);
+}
+
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .lang-panel {
+    padding: 0 0.75rem;
+    gap: 0.4rem;
+  }
+
+  #langPanelTitle {
+    font-size: 0.6875rem;
+  }
+
+  #genreList button {
+    font-size: 0.875rem;   /* 14px */
+    padding: 0 0.85rem;
+    height: 1.875rem;
+  }
+
+  /* more panel spans full width on mobile */
+  .more-panel {
+    left: 0 !important;
+    right: 0;
+    max-width: 100%;
+    padding: 0 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .more-panel button {
+    font-size: 0.875rem;
+  }
+}

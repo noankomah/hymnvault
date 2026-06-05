@@ -1,0 +1,74 @@
+/* ── HYMN NAV ARROWS ─────────────────────────────────────
+   Fixed to left/right edges of viewport, vertically centred
+   in the content area below the top bars.
+   Appended to body so they float over the lyrics cleanly.
+*/
+
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+
+  /* Size — tall enough for a comfortable tap target */
+  width: 2.25rem;
+  height: 5rem;
+
+  /* Arrow character */
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(26, 46, 26, 0.35);
+
+  /* Pill shape hugging the screen edge */
+  background: rgba(238, 189, 9, 0.55);
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.nav-arrow--prev {
+  left: 0rem;
+  border-radius: 0 0.6rem 0.6rem 0;
+  padding-right: 0.15rem;
+}
+
+.nav-arrow--next {
+  right: 0;
+  border-radius: 0.6rem 0 0 0.6rem;
+  padding-left: 0.15rem;
+}
+
+.nav-arrow:hover {
+  color: var(--clr-gold);
+  background: rgba(255, 255, 255, 0.90);
+  transform: translateY(-50%) scaleY(1.06);
+}
+
+
+
+/* ── Dark mode ── */
+
+body.dark .nav-arrow {
+  color: rgba(200, 225, 200, 0.30);
+  background: rgba(217, 178, 5, 0.55);
+}
+
+body.dark .nav-arrow:hover {
+  color: var(--clr-gold);
+  background: rgba(15, 35, 20, 0.90);
+}
+
+/* ── Mobile — make slightly narrower so arrows don't eat content ── */
+@media (max-width: 600px) {
+  .nav-arrow {
+    width: 1.75rem;
+    height: 4.5rem;
+    font-size: 1.6rem;
+  }
+}

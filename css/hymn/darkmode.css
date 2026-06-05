@@ -1,0 +1,312 @@
+/*
+  dark-mode.css
+  Applied by adding class "dark" to <body>.
+  Overrides every component — bars, panels, lists, lyrics, search.
+  Gold accent is kept — it reads well on dark and keeps the identity.
+*/
+
+/* ── BASE ────────────────────────────────────────────────── */
+
+body.dark {
+  background: #0a160e;
+  color: #dde8dd;
+}
+
+/* ── LANGUAGE BAR ────────────────────────────────────────── */
+
+body.dark .language-bar {
+  background: #071510;
+  border-bottom-color: rgba(232, 160, 32, 0.20);
+  box-shadow:
+    0 1px 0 0 rgba(193, 39, 45, 0.25),
+    0 2px 0 0 rgba(232, 160, 32, 0.20),
+    0 3px 0 0 rgba(27, 107, 48, 0.20),
+    0 6px 18px rgba(0, 0, 0, 0.60);
+}
+
+body.dark .language-bar button {
+  color: rgba(220, 235, 220, 0.85);
+  border-color: rgba(232, 160, 32, 0.25);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .language-bar button:hover {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.10);
+  border-color: rgba(232, 160, 32, 0.35);
+  box-shadow: 0 0 12px rgba(232, 160, 32, 0.12);
+}
+
+body.dark .language-bar button:active {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.18);
+  border-color: rgba(232, 160, 32, 0.45);
+  transform: scale(0.96);
+}
+
+body.dark .language-bar button.active {
+  color: #0a160e;
+  background: var(--clr-gold);
+  border-color: var(--clr-gold);
+  box-shadow:
+    0 0 0 3px rgba(232, 160, 32, 0.25),
+    0 2px 8px rgba(232, 160, 32, 0.35);
+}
+
+body.dark .language-bar button.active:active {
+  color: #0a160e;
+  background: var(--clr-gold);
+}
+
+/* ── SEARCH BOX ──────────────────────────────────────────── */
+
+body.dark .search-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(232, 160, 32, 0.30);
+}
+
+body.dark .search-box:focus-within {
+  border-color: rgba(232, 160, 32, 0.65);
+  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.15);
+}
+
+body.dark #searchPrefix {
+  color: var(--clr-gold);
+}
+
+body.dark .search-colon {
+  color: rgba(220, 235, 220, 0.35);
+}
+
+body.dark #searchQuery {
+  color: #dde8dd;
+}
+
+body.dark #searchQuery::placeholder {
+  color: rgba(220, 235, 220, 0.35);
+}
+
+body.dark #closeSearch {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(220, 235, 220, 0.55);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+/* ── GENRE BAR ───────────────────────────────────────────── */
+
+body.dark #langPanel {
+  background: #0d1f14;
+  border-bottom-color: rgba(232, 160, 32, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+body.dark #langPanelTitle {
+  color: rgba(220, 235, 220, 0.35);
+}
+
+body.dark #genreList button {
+  color: rgba(220, 235, 220, 0.80);
+  border-color: rgba(232, 160, 32, 0.25);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark #genreList button:hover {
+  background: rgba(232, 160, 32, 0.10);
+  border-color: rgba(232, 160, 32, 0.40);
+}
+
+body.dark #genreList button:active {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.18);
+  border-color: rgba(232, 160, 32, 0.45);
+  transform: scale(0.96);
+}
+
+body.dark #genreList button.active {
+  background: var(--clr-gold);
+  color: #0a160e;
+  border-color: var(--clr-gold);
+  box-shadow:
+    0 0 0 3px rgba(232, 160, 32, 0.25),
+    0 2px 8px rgba(232, 160, 32, 0.35);
+}
+
+body.dark #genreList button.active:active {
+  color: #0a160e;
+  background: var(--clr-gold);
+}
+
+/* ── MORE PANEL ──────────────────────────────────────────── */
+
+body.dark .more-panel {
+  background: #071510;
+  border-bottom-color: rgba(232, 160, 32, 0.15);
+}
+
+body.dark .more-panel button {
+  color: rgba(220, 235, 220, 0.80);
+  border-color: rgba(232, 160, 32, 0.25);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .more-panel button:hover {
+  background: var(--clr-gold);
+  color: #0a160e;
+}
+
+body.dark .more-panel button:active {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.18);
+}
+
+/* ── MENU PANEL ──────────────────────────────────────────── */
+
+body.dark .menu-panel {
+  background: rgba(5, 12, 7, 0.98);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.55);
+}
+
+body.dark .menu-panel h1 {
+  color: rgba(220, 235, 220, 0.70);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .menu-panel ul li {
+  color: rgba(220, 235, 220, 0.80);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .menu-panel ul li:hover {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.08);
+}
+
+body.dark .menu-panel ul li:active {
+  color: var(--clr-gold-light);
+  background: rgba(232, 160, 32, 0.14);
+}
+
+/* ── MAIN CONTENT AREA ───────────────────────────────────── */
+
+body.dark main {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(15, 35, 20, 0.95), transparent 26%),
+    radial-gradient(circle at 80% 18%, rgba(20, 50, 30, 0.60), transparent 30%),
+    radial-gradient(circle at 48% 82%, rgba(10, 30, 18, 0.50), transparent 35%),
+    linear-gradient(135deg, #0a160e 0%, #0d1f14 45%, #0a1a10 100%);
+}
+
+body.dark main::before {
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.03) 35%, transparent 55%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 0.08rem, transparent 0.08rem 1.4rem);
+}
+
+body.dark main::after {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(232, 160, 32, 0.04), transparent 22%),
+    radial-gradient(circle at 72% 70%, rgba(232, 160, 32, 0.03), transparent 25%);
+}
+
+/* ── HYMN LIST ───────────────────────────────────────────── */
+
+body.dark .hymn-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(232, 160, 32, 0.10);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .hymn-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+}
+
+body.dark .hymn-item:active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body.dark .hymn-title {
+  color: #ccdacc;
+}
+
+body.dark .hymn-number {
+  color: var(--clr-gold);
+}
+
+/* ── SEARCH RESULTS ──────────────────────────────────────── */
+
+body.dark .search-section-label {
+  color: var(--clr-gold);
+  border-top-color: rgba(232, 160, 32, 0.15);
+}
+
+body.dark .hymn-snippet {
+  color: rgba(180, 210, 180, 0.55);
+}
+
+/* ── LYRICS VIEW ─────────────────────────────────────────── */
+
+body.dark .lyrics-back-btn {
+  background: var(--clr-gold);
+  color: #0a160e;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark .lyrics-back-btn:hover {
+  background: var(--clr-gold-light);
+}
+
+body.dark .lyrics-back-btn:active {
+  background: var(--clr-gold-light);
+  color: #0a160e;
+}
+
+body.dark .lyrics-header {
+  border-bottom-color: rgba(232, 160, 32, 0.20);
+}
+
+body.dark .lyrics-title {
+  color: #dde8dd;
+}
+
+body.dark .lyrics-num {
+  color: var(--clr-gold);
+}
+
+body.dark .lyrics-block {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(232, 160, 32, 0.10);
+}
+
+body.dark .lyrics-chorus {
+  background: rgba(232, 160, 32, 0.07);
+  border-color: rgba(232, 160, 32, 0.22);
+}
+
+body.dark .lyrics-part {
+  background: rgba(255, 255, 255, 0.03);
+  border-left-color: rgba(232, 160, 32, 0.40);
+}
+
+body.dark .block-label {
+  color: var(--clr-gold);
+}
+
+body.dark .block-text {
+  color: #ccdacc;
+}
+
+body.dark .lyrics-unavailable {
+  color: rgba(220, 235, 220, 0.30);
+}
+
+/* ── LOADING / ERROR STATES ──────────────────────────────── */
+
+body.dark .loading {
+  color: rgba(220, 235, 220, 0.35);
+}
+
+body.dark .error {
+  color: rgba(220, 100, 100, 0.70);
+}

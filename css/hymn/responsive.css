@@ -1,0 +1,235 @@
+/*
+  responsive.css
+  ─────────────────────────────────────────────────────────
+  Loaded LAST so it can cleanly override problem values.
+  Desktop experience is intentionally untouched.
+  Fixes: menu height, font floors, touch targets, content
+  width capping, lyrics readability.
+*/
+
+/* ── CORE VARIABLES ─────────────────────────────────────── */
+/*
+  dvh = dynamic viewport height — accounts for mobile
+  browser chrome (address bar sliding in/out).
+  Falls back to vh in older browsers.
+*/
+:root {
+  --content-max: 720px;       /* cap readable content width */
+  --touch-min:   2.75rem;     /* 44px — Apple/Google min touch target */
+}
+
+
+/* ── MENU PANEL ─────────────────────────────────────────── */
+/*
+  height: 100% on a fixed panel = full viewport on tall
+  phones. Sparse items + massive empty space = bad.
+  Auto height + scroll is the right model.
+*/
+.menu-panel {
+  height: auto;
+  max-height: calc(100dvh - var(--bar-height));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0 0 0.75rem 0;
+}
+
+.menu-panel ul li {
+  min-height: var(--touch-min);
+  padding: 0.85rem 0;
+}
+
+
+/* ── LANGUAGE BAR BUTTONS ───────────────────────────────── */
+/*
+  clamp minimum was ~11–12px on narrow screens.
+  Floor at 0.875rem (14px) — readable, never tiny.
+*/
+.language-bar button {
+  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  min-height: var(--touch-min);
+}
+
+#menuBtn,
+#moreBtn {
+  min-width:  var(--touch-min);
+  min-height: var(--touch-min);
+}
+
+
+/* ── GENRE BAR ──────────────────────────────────────────── */
+/*
+  0.72rem minimum was 11.5px on mobile.
+  Raised floor to 0.875rem.
+*/
+#genreList button {
+  font-size:  clamp(0.875rem, 1.8vw, 0.9rem);
+  min-height: 2.1rem;
+  padding:    0 1rem;
+}
+
+#langPanelTitle {
+  font-size: clamp(0.75rem, 1.6vw, 0.78rem);
+}
+
+
+/* ── MORE PANEL ─────────────────────────────────────────── */
+.more-panel button {
+  font-size:  clamp(0.875rem, 1.8vw, 1rem);
+  min-height: var(--touch-min);
+}
+
+
+/* ── SEARCH ─────────────────────────────────────────────── */
+#searchInput {
+  font-size: clamp(0.875rem, 1.6vw, 0.9rem);
+  height:    2.3rem;
+}
+
+
+/* ── HYMN LIST ──────────────────────────────────────────── */
+/*
+  Cap width so on wide desktop the list doesn't stretch
+  uncomfortably across the full screen.
+  Raise font floors so mobile is legible.
+*/
+.hymn-list {
+  max-width: var(--content-max);
+  margin-left:  auto;
+  margin-right: auto;
+  padding: 1.2rem;
+  gap: 0.4rem;
+}
+
+.hymn-item {
+  min-height: var(--touch-min);
+  padding: 0.85rem 1rem;
+  gap: 0.85rem;
+}
+
+.hymn-number {
+  font-size: clamp(0.85rem, 1.8vw, 0.85rem);
+  flex: 0 0 2.6rem;
+}
+
+.hymn-title {
+  font-size:   clamp(1rem, 2vw, 1rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+
+/* ── LYRICS VIEW ────────────────────────────────────────── */
+/*
+  This is the primary reading experience.
+  Text must be comfortable on every screen.
+*/
+.lyrics-view {
+  max-width: var(--content-max);
+  margin-left:  auto;
+  margin-right: auto;
+  padding: 1.2rem 1.2rem 4rem;
+}
+
+.lyrics-title {
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  line-height: 1.3;
+}
+
+.lyrics-num {
+  font-size: clamp(0.85rem, 2vw, 0.85rem);
+}
+
+.block-label {
+  font-size: clamp(0.72rem, 1.5vw, 0.72rem);
+}
+
+.block-text {
+  font-size:   clamp(1.05rem, 2.2vw, 1.05rem);
+  line-height: 1.85;
+}
+
+.lyrics-back-btn {
+  font-size:  clamp(0.875rem, 1.8vw, 0.875rem);
+  min-height: 2.4rem;
+}
+
+
+/* ── INSTRUCTION OVERLAY ────────────────────────────────── */
+.instruction-panel h2 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+.instruction-panel p {
+  font-size: clamp(0.82rem, 2vw, 1rem);
+}
+
+
+/* ── MOBILE-SPECIFIC OVERRIDES (≤ 600px) ────────────────── */
+@media (max-width: 600px) {
+
+  /* menu takes 82vw but never more than 300px */
+  .menu-panel {
+    width: min(82vw, 300px);
+  }
+
+  /* more panel becomes a proper bottom-anchored strip */
+  .more-panel {
+    left:    0 !important;
+    right:   0;
+    top:     0;
+    width:   100%;
+    height:  auto;
+    padding: 0.5rem 0.75rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: white;
+    border-bottom: 1px solid rgba(232, 160, 32, 0.25);
+  }
+
+  .more-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* slightly more breathing room on hymn items */
+  .hymn-item {
+    padding: 0.9rem 0.85rem;
+  }
+
+  /* lyrics blocks get more padding for comfortable reading */
+  .lyrics-block {
+    padding: 1.1rem 1rem;
+  }
+
+  /* prevent lyrics title from wrapping awkwardly */
+  .lyrics-header {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .lyrics-num {
+    align-self: flex-start;
+  }
+}
+
+
+/* ── LARGE SCREENS (≥ 1024px) ───────────────────────────── */
+@media (min-width: 1024px) {
+
+  /* on wide screens, shift main content right when menu opens */
+  main.menu-open {
+    margin-left: var(--menu-width);
+  }
+
+  /* constrain the menu height more tightly on desktop */
+  .menu-panel {
+    max-height: calc(100dvh - var(--bar-height));
+  }
+
+  /* bigger lyrics text on large screens — comfortable reading */
+  .block-text {
+    font-size: 1.08rem;
+    line-height: 1.9;
+  }
+}

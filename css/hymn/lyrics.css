@@ -1,0 +1,199 @@
+/* ── LYRICS VIEW ─────────────────────────────────────────── */
+
+.lyrics-view {
+  padding: 1rem 1.2rem 3rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.lyrics-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-active-text);
+  background: transparent;
+  border: none;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.12s;
+}
+
+.lyrics-back-btn:hover {
+  background: var(--clr-gold-light);
+  transform: translateX(-3px);
+}
+#hymn-font-step {
+  margin-left: 0.6rem;
+}
+
+#hymn-font-step input {
+  width: 2.5rem;
+  padding: 0.25rem;
+  font-size: 0.82rem;
+  text-align: center;
+  border: 1px solid rgba(26, 46, 26, 0.3);
+  border-radius: var(--r-pill);
+  color: red;
+}
+.lyrics-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(232, 160, 32, 0.25);
+}
+
+.lyrics-num {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--clr-gold);
+  letter-spacing: 0.06em;
+}
+
+.lyrics-title {
+  flex: 1;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  color: #1a2e1a;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+}
+
+/* individual verse / chorus / part blocks */
+.lyrics-block {
+  margin-bottom: 1.4rem;
+  padding: 1rem 1.1rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(232, 160, 32, 0.12);
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.lyrics-chorus {
+  background: rgba(232, 160, 32, 0.08);
+  border-color: rgba(232, 160, 32, 0.30);
+}
+
+.lyrics-part {
+  background: rgba(255, 255, 255, 0.45);
+  border-left: 3px solid rgba(232, 160, 32, 0.5);
+}
+
+.block-label {
+  display: block;
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  margin-bottom: 0.5rem;
+}
+
+.block-text {
+  font-size: 0.95rem;
+  color: #1a2e1a;
+  line-height: 1.8;
+}
+
+.lyrics-unavailable {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.35);
+  font-style: italic;
+}
+
+
+.font-stepper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 20%;
+  margin-left: 20rem;
+   transform: translateY(-50px);
+}
+
+.stepper-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  line-height: 1;
+  color: #0cbeea;
+}
+
+.stepper-a--small {
+  font-size: 1rem;
+}
+
+.stepper-a--large {
+  font-size: 1.6rem;
+}
+
+.stepper-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0;
+}
+
+.stepper-node {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+
+  border-radius: 50%;
+  border: 2px solid #999;
+  background: #fff;
+
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+}
+
+.stepper-node.active {
+  background: #de8511;
+  border-color:  #999;
+}
+
+.stepper-line {
+  width: 36px;
+  height: 4px;
+  background: #ccc;
+  flex-shrink: 0;
+}
+
+.stepper-line.filled {
+  background: #222;
+}
+
+/* staggered fade-in for blocks */
+@keyframes lyricsBlockIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lyrics-block.fade-in {
+  animation: lyricsBlockIn 0.35s ease forwards;
+}

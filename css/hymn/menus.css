@@ -1,0 +1,177 @@
+/* ── MENU OVERLAY ── */
+/* transparent layer behind panel — click it to close */
+.menu-overlay {
+  position: fixed;
+  z-index: 100;
+  top: var(--bar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+/* ── MENU PANEL ── */
+.menu-panel {
+  position: fixed;
+  top: var(--bar-height);
+  left: 0;
+  width: var(--menu-width);
+
+  /*
+    height: auto — panel is as tall as its content.
+    max-height — never taller than the remaining viewport.
+    dvh accounts for mobile browser chrome (address bar).
+    Without this, a tall iPhone shows a massive empty panel.
+  */
+  height: auto;
+  max-height: calc(100dvh - var(--bar-height));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  background: rgba(39, 56, 40, 0.97);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  padding: 0.75rem 0.75rem 2rem;
+  box-sizing: border-box;
+  border-radius: 0 0 0.75rem 0;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.30);
+}
+
+.menu-panel.hidden {
+  display: none;
+}
+
+/* ── Heading ── */
+.menu-panel h1 {
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.25rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 0.25rem;
+}
+
+/* ── List ── */
+.menu-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-panel ul li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-height: var(--touch-target);   /* 44px — never smaller on any device */
+  padding: 0.75rem 0.25rem;
+  font-size: 1rem;                   /* 16px — standard readable size */
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.menu-panel ul li:has(label.switch) {
+  grid-template-columns: 1.5rem 1fr auto;
+}
+
+.menu-panel ul li:has(label.switch) .switch {
+  justify-self: end;
+}
+
+.menu-panel ul li:hover {
+  color: var(--clr-gold-light);
+  background: var(--clr-gold-dim);
+}
+
+/* ── Dark mode toggle ── */
+.switch {
+  position: relative;
+  display: flex;
+  width: 58px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #f8f4f4;
+  border-radius: 24px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "☀️";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 7px;
+  background: transparent;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:not(:checked) + .slider::after {
+  position: absolute;
+  content: "Day";
+  font-size: 0.7rem;
+  left: 24px;
+  top: 5px;
+}
+
+input:checked + .slider {
+  background: #f8f4f4;
+}
+
+input:checked + .slider::before {
+  transform: translateX(22px);
+  content: '🌑';
+  left: 12px;
+}
+
+input:checked + .slider::after {
+  position: absolute;
+  content: "Night";
+  font-size: 0.7rem;
+  right: 28px;
+  top: 5px;
+}
+
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .menu-panel {
+    width: min(85vw, 300px);
+  }
+
+  .menu-panel h1 {
+    font-size: 0.9375rem;
+  }
+
+  .menu-panel ul li {
+    font-size: 1rem;      /* keep at 16px on mobile */
+    padding: 0.85rem 0.25rem;
+  }
+
+.slider::before {
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 7px;
+
+}
+
+}
